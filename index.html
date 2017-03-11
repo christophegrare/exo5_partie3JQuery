@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <title>exercice 5</title>
+</head>
+<body>
+  <form class="forme" action="index.html" method="">
+    <input type="text" placeholder="touche directionnel" id="nom" value="" />
+  </form>
+  <div class="square"></div>
+  <script src="jquery-2.2.4.js"></script>
+  <script>/*Construisez une page html avec un carré et un champ de saisie de texte
+  dans un formulaire.
+  Lorsque l'on appuie sur une touche de direction le carré se déplace de 10 px
+  dans la bonne direction.
+  Quand le bloc atteint un bord de la page, il doit réaparaître de l'autre côté.*/
+
+  $(document).ready(function(){
+    //declare 2 var hauteur largeur de fenetre
+    var largeur_fenetre = $(window).width();
+    var hauteur_fenetre = $(window).height();
+    $(document).keydown(function(e){//keydown pour l'utilisation des direction
+    /*L'instruction switch est utilisée pour effectuer différentes
+     actions en fonction de conditions différentes*/
+    /*Pour les événements de touche ou de souris, cette propriété indique la touche spécifique
+      ou le bouton qui a été pressé.*/
+      //declare 2 var pour recup la position du carre dans la fenetre
+      var top = $('.square').offset().top;
+      var left = $('.square').offset().left;
+      //console.log sert a controle dans firebug la position reel
+      console.log($('.square').offset());
+    switch (e.which){
+      // gauche par raport au point de depart
+      //case = a selon
+      case 37:
+      //correction de "véronique":))
+      /*if (left < (largeur_fenetre-200)){
+         $('#carre').css('margin-left', '+=10');
+       }
+       else{
+         $('#carre').css('margin-left','0');
+       }
+       break;
+       case 37:
+       if(left>0){
+       $('#carre').css('margin-left', '-=10');
+     }
+       else{
+       $('#carre').css('margin-left',largeur_fenetre-200);
+       }
+       break;
+       case 40:
+       if(top < (hauteur_fenetre-200)){
+         $('#carre').css('margin-top', '+=10');
+       }
+       else{
+       $('#carre').css('margin-top','0');
+       }
+       break;
+       case 38:
+       if(top>0){
+       $('#carre').css('margin-top', '-=10');
+       }
+       else{
+       $('#carre').css('margin-top',hauteur_fenetre-200);
+       }
+       default:
+
+     }*/
+      if()
+      $('.square').stop().animate({
+        // la gauche se trouve a - du point 0
+        left:'-=10'
+      }); break;
+      //  pour le haut aussi on utilise le -
+      case 38:
+      $('.square').stop().animate({
+        top:'-=10'
+      }); break;
+      //  droite le plus est pour deplacement en + du point 0
+      case 39:
+      $('.square').stop().animate({
+        left:'+=10'
+      }); break;
+      //  bas la meme maniere que droite
+      case 40:
+      $('.square').stop().animate({
+        top:'+=10'
+      }); break;
+    }
+  });
+});
+</script>
+  </body>
+</html>
